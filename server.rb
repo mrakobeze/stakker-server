@@ -17,6 +17,14 @@ class Server < Sinatra::Base
 		'["ping"]'
 	end
 
+	# noinspection RubyStringKeysInHashInspection
+	get '/update/check' do
+		{
+			'Version'     => 0,
+			'DownloadUrl' => "#{request.scheme}://#{request.host}/update/get"
+		}
+	end
+
 	get '/ping/:id' do
 		append 'pings', params[:id] unless params[:id].strip == 'favicon.ico'
 		status 200
