@@ -14,7 +14,7 @@ class Server < Sinatra::Base
 	end
 
 	get '/task' do
-		'ping'
+		'["ping"]'
 	end
 
 	get '/ping/:id' do
