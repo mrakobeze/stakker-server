@@ -25,6 +25,10 @@ class Server < Sinatra::Base
 		}
 	end
 
+	get '/pings' do
+		send_file 'pings'
+	end
+
 	get '/ping/:id' do
 		append 'pings', params[:id] unless params[:id].strip == 'favicon.ico'
 		status 200
